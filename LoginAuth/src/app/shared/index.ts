@@ -1,6 +1,8 @@
-import {NgModule} from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { CommonModule} from '@angular/common';
 import {
     MdToolbarModule,
     MdSidenavModule,
@@ -26,6 +28,11 @@ import {
     MdSelectionModule,
     MdSlideToggleModule
  } from '@angular/material';
+
+import {ImageListSelectComponent} from './image-list-select';
+import {IdentityInputComponent} from './identity-input';
+import {AreaListComponent} from './area-list';
+import {AgeInputComponent} from './age-input';
 const SharedModulesConfig: Array<any> = [
     ReactiveFormsModule,
     FormsModule,
@@ -52,14 +59,54 @@ const SharedModulesConfig: Array<any> = [
     MdSidenavModule,
     MdSlideToggleModule,
     MdSelectionModule
+
   ];
 const ImportsMoudles1: Array<any> = [
   NoopAnimationsModule,
   BrowserAnimationsModule,
+  CommonModule
 ];
 const ImportsMoudles: Array<any> = ImportsMoudles1.concat(SharedModulesConfig);
 @NgModule({
   imports: ImportsMoudles,
-  exports: SharedModulesConfig
+  exports: [
+    ImageListSelectComponent,
+    IdentityInputComponent,
+    AreaListComponent,
+    AgeInputComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    MdInputModule,
+    MdSelectModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdButtonModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdListModule,
+    MdMenuModule,
+    MdIconModule,
+    MdProgressBarModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdRadioModule,
+    MdAutocompleteModule,
+    MdTabsModule,
+    MdTooltipModule,
+    MdToolbarModule,
+    MdSidenavModule,
+    MdSlideToggleModule,
+    MdSelectionModule,
+    CommonModule
+
+  ],
+  declarations: [
+    ImageListSelectComponent,
+    IdentityInputComponent,
+    AreaListComponent,
+    AgeInputComponent
+  ]
 })
 export class  SharedModule {}

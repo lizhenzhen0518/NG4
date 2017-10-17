@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit , ChangeDetectionStrategy} from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Store} from '@ngrx/store';
+import * as fromRoot from '../../reducers';
+import * as authActions from '../../actions/auth.action';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  constructor(private fb: FormBuilder, private store$: Store<fromRoot.State>) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      email: ['' , [Validators.maxLength(20),
+                    Validators.email,
+                    Validators.required]],
+      password: ['', Validators.required]
+    });
   }
+  onSubmit({value, valid}, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    if ( !valid ) {
+      return;
+    }
+    this.store$.dispatch(new authActions.LoginAction({
+      email: value.email,
+      password: value.password
+    }));
+  }
+
 
 }

@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { LoginModule} from './login';
 import { CoreModule} from './core';
 
-
 @NgModule({
   declarations: [
     AppComponent

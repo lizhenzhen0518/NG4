@@ -4,8 +4,9 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { LoginRoutingModule } from './login-routing.module';
 import { SharedModule } from '../shared';
+import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
-  imports: [ LoginRoutingModule, SharedModule ],
+  imports: [ LoginRoutingModule, SharedModule, BrowserModule ],
   declarations: [ForgetComponent , LoginComponent , RegisterComponent ]
 })
 export class LoginModule { }

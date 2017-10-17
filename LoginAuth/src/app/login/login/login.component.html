@@ -1,6 +1,41 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+  <md-card  class="card">
 
+    <md-card-header>
+      <md-card-title> 登录: </md-card-title>
+    </md-card-header>
+    <md-card-content>
 
-<md-input-container class="full-width">
-  <input mdInput type="text" placeholder="您的Email" >
-  <md-error>用户名是必填项哦</md-error>
-</md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput type="text" placeholder="您的Email" class="controll-input"  formControlName="email" />
+        <md-error>
+          <p *ngIf="form.get('email').hasError('email')">
+            邮箱不合法
+          </p>
+          <p *ngIf="form.get('email').hasError('required')">
+            邮箱不能为空
+          </p>
+          <p *ngIf="form.get('email').hasError('maxLength')">
+            邮箱不能超过20个字
+          </p>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container class="full-width ">
+        <input mdInput type="password" class="controll-input"  placeholder="您的密码" formControlName="password" />
+        <md-error>
+          <p *ngIf="form.get('password').hasError('required')">
+            密码不能为空
+          </p>
+        </md-error>
+      </md-input-container>
+
+      <button md-raised-button type="submit" [disabled]="!form.valid">登录</button>
+    </md-card-content>
+
+    <md-card-actions>
+      <p> 还没有 账户 ?  <a routerLink="/register">注册</a></p>
+      <p> 忘记 <a routerLink="/forgot">密码?</a></p>
+    </md-card-actions>
+  </md-card>
+</form>

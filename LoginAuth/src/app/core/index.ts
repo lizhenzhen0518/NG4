@@ -5,6 +5,7 @@ import { AppStoreModule } from '../reducers';
 import { ServiceModule} from '../services';
 // effects
 import { AppEffectsModule} from '../effects';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'rxjs/add/operator/defaultIfEmpty';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/combineLatest';
@@ -15,7 +16,8 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [ AppRoutingModule, AppStoreModule, ServiceModule.forRoot() , AppEffectsModule, HttpModule, CommonModule],
+  imports: [ AppRoutingModule, AppStoreModule, ServiceModule.forRoot() ,
+    AppEffectsModule, HttpModule, CommonModule, BrowserAnimationsModule],
   exports: [ AppRoutingModule ],
 
   providers: [{

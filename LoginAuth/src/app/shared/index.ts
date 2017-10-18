@@ -1,8 +1,8 @@
 
 import { NgModule } from '@angular/core';
-
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 import {
     MdToolbarModule,
     MdSidenavModule,
@@ -60,6 +60,7 @@ const SharedModulesConfig: Array<any> = [
     MdSlideToggleModule,
     MdSelectionModule,
     CommonModule
+
   ];
 const ImportsMoudles1: Array<any> = [
 
@@ -98,6 +99,7 @@ const ImportsMoudles: Array<any> = ImportsMoudles1.concat(SharedModulesConfig);
     MdSlideToggleModule,
     MdSelectionModule,
     CommonModule
+
   ],
   declarations: [
     ImageListSelectComponent,

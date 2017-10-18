@@ -1,8 +1,8 @@
 
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
     MdToolbarModule,
     MdSidenavModule,
@@ -58,13 +58,11 @@ const SharedModulesConfig: Array<any> = [
     MdToolbarModule,
     MdSidenavModule,
     MdSlideToggleModule,
-    MdSelectionModule
-
+    MdSelectionModule,
+    CommonModule
   ];
 const ImportsMoudles1: Array<any> = [
-  NoopAnimationsModule,
-  BrowserAnimationsModule,
-  CommonModule
+
 ];
 const ImportsMoudles: Array<any> = ImportsMoudles1.concat(SharedModulesConfig);
 @NgModule({
@@ -100,7 +98,6 @@ const ImportsMoudles: Array<any> = ImportsMoudles1.concat(SharedModulesConfig);
     MdSlideToggleModule,
     MdSelectionModule,
     CommonModule
-
   ],
   declarations: [
     ImageListSelectComponent,

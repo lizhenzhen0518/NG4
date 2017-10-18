@@ -12,9 +12,10 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [ AppRoutingModule, AppStoreModule, ServiceModule.forRoot() , AppEffectsModule, HttpModule],
+  imports: [ AppRoutingModule, AppStoreModule, ServiceModule.forRoot() , AppEffectsModule, HttpModule, CommonModule],
   exports: [ AppRoutingModule ],
 
   providers: [{

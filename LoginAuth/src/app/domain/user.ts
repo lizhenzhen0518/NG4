@@ -27,10 +27,11 @@ export interface User {
   email: string;
   name?: string;
   password: string;
-  avatar: string;
+  avatar?: string;
   projectIds?: string[];
+  taskIds?: string[];
   address?: Address;
   dateOfBirth?: string;
-  identity: Identity;
+  identity?: Identity;
 
 }

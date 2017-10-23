@@ -152,6 +152,8 @@ export class  IdentityInputComponent implements ControlValueAccessor, OnInit, On
 
   private get idNo(): Observable<string> {
     return this._idNo.asObservable();
+
+
   }
 
 }

@@ -29,7 +29,7 @@ export class AuthService {
     return this.http
       .get(uri, {params: {'email': email, 'password': password}})
       .map(res => {
-        if ( res.json().length > 0) {
+        if ( res.json().length === 0) {
           throw new Error('Login Failed');
         }
         return {

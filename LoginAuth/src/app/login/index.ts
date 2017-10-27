@@ -10,3 +10,4 @@ import { SharedModule } from '../shared';
   declarations: [ForgetComponent , LoginComponent , RegisterComponent ]
 })
 export class LoginModule { }
+

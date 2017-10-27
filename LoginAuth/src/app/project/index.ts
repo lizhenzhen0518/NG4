@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared';
-import { ProjectRoutingModule } from './project-routing.module';
-import { ProjectListComponent } from './project-list';
 
+import { ProjectSharedModule} from './shared';
+import { ProjectListComponent } from './project-list';
+import { ProjectHomeComponent } from './home';
+import { ProjectComponent} from './project.component';
+import { CoreProjectModule } from './core';
+import { ProjectFooterComponent} from './footer';
+import { ProjectHeaderComponent} from './header';
 @NgModule({
   imports: [
-    SharedModule,
-    ProjectRoutingModule
+    CoreProjectModule,
+    SharedModule
+
   ],
-  exports: [ProjectListComponent],
+  exports: [],
   entryComponents: [ ],  // ?????
   declarations: [
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectHomeComponent,
+    ProjectComponent,
+    ProjectFooterComponent,
+    ProjectHeaderComponent
   ]
 })
-export class ProjectModule {
+export class ProjectAppModule {
 }

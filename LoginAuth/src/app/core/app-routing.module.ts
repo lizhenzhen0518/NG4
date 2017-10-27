@@ -1,6 +1,6 @@
-import { RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {AuthGuardService} from '../services';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { AuthGuardService } from '../services';
 const route: Routes = [
   {
     path: '',
@@ -9,9 +9,13 @@ const route: Routes = [
   },
   {
     path: 'projects',
-    loadChildren: 'app/project#ProjectModule',
-    pathMatch: 'full',
-     canActivate: [AuthGuardService]
+    loadChildren: 'app/project#ProjectAppModule',
+   // pathMatch: 'full'
+     //canActivate: [AuthGuardService]
+  },
+  {
+    path: 'manage',
+    loadChildren: 'app/manage-app#ManageAppModule'
   },
 ];
 

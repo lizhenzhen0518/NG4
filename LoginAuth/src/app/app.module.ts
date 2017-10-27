@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { LoginModule} from './login';
 import { CoreModule} from './core';
 import { BrowserModule} from '@angular/platform-browser';
+
+
 @NgModule({
   declarations: [
     AppComponent

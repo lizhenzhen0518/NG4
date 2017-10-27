@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Store} from '@ngrx/store';
 import * as fromRoot from '../../reducers';
 import * as authActions from '../../actions/auth.action';
+import { RouterModule, Routes} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
       email: ['' , [Validators.maxLength(20),
                     Validators.email,
                     Validators.required]],
-      password: ['', Validators.required]
+      password: ['123', Validators.required]
     });
   }
   onSubmit({value, valid}, event: Event) {

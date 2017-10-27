@@ -1,5 +1,7 @@
 .street{
-  flex: 1 1 100%;
+
+ padding: 10px 0px;
+ width: 100%
 }
 .address-group{
   width: 100%;

@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { FooterComponent} from './footer';
+import { HeaderComponent} from './header';
 import {
     MdToolbarModule,
     MdSidenavModule,
@@ -98,14 +99,18 @@ const ImportsMoudles: Array<any> = ImportsMoudles1.concat(SharedModulesConfig);
     MdSidenavModule,
     MdSlideToggleModule,
     MdSelectionModule,
-    CommonModule
+    CommonModule,
+    FooterComponent,
+    HeaderComponent
 
   ],
   declarations: [
     ImageListSelectComponent,
     IdentityInputComponent,
     AreaListComponent,
-    AgeInputComponent
+    AgeInputComponent,
+    FooterComponent,
+    HeaderComponent
   ]
 })
 export class  SharedModule {}

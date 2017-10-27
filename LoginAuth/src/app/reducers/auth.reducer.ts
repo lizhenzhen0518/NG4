@@ -1,6 +1,6 @@
 import { Auth} from '../domain';
 import * as actions from '../actions/auth.action';
-
+import { go } from '@ngrx/router-store';
 export const initialState: Auth = {
   token: ''
 };

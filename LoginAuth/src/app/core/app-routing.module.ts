@@ -11,7 +11,7 @@ const route: Routes = [
     path: 'projects',
     loadChildren: 'app/project#ProjectAppModule',
    // pathMatch: 'full'
-     //canActivate: [AuthGuardService]
+     canActivate: [AuthGuardService]
   },
   {
     path: 'manage',

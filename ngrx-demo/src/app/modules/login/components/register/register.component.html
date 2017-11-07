@@ -1,0 +1,104 @@
+<form class="form-horizontal" (ngSubmit)="onSubmit(form, $event)" [formGroup]="form">
+  <div class="form-group">
+    <label for="email" class="col-sm-2">邮箱:</label>
+    <div class="col-md-6 col-sm-10">
+      <input type="text" class="form-control" id="email"
+             placeholder="请输入电子邮件"
+             formControlName="email"
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="account" class="col-sm-2">账户</label>
+    <div class="col-md-6 col-sm-10">
+      <input type="password" class="form-control" id="account"
+             formControlName="account"
+             placeholder="请输入账号">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username" class="col-sm-2">姓名</label>
+    <div class="col-md-6 col-sm-10">
+      <input type="password" class="form-control" id="username"
+             formControlName="username"
+             placeholder="请输入真实姓名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2">密码</label>
+    <div class="col-md-6 col-sm-10">
+      <input type="password" class="form-control" id="password"
+             formControlName="password"
+             placeholder="请输入密码">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="repeat" class="col-sm-2">再次密码</label>
+    <div class="col-md-6 col-sm-10">
+      <input type="password" class="form-control" id="repeat"
+             formControlName="repeat"
+             placeholder="请再次输入密码">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="position" class="col-sm-2">选择所在岗位</label>
+    <div class="col-md-6 col-sm-10" >
+      <select class="form-control"
+              *ngIf="( position$ | async )?.length > 0"
+              name="position" id="position" formControlName="position" >
+
+        <option *ngFor = "let c of ( position$ | async ) " [value]="c">{{ c.positionName }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div formArrayName="keywords">
+    <div *ngFor="let item of form.controls['keywords'].controls; let i = index">
+
+    <div [formGroup]="item" style="border: 1px solid #726e6e; overflow: hidden; margin-bottom: 10px; padding: 10px;">
+      <span (click)="trashGroup(i)"><i class="icon icon-trash" style="font-size: 20px;" ></i></span>
+        <div class="form-group" >
+          <label class="col-sm-2">{{i}} 标题 </label>
+          <div class="col-md-6 col-sm-10" >
+            <input type="text" class="form-control" formControlName="title">
+
+          </div>
+        </div>
+        <div formArrayName="words">
+          <div *ngFor="let cd of item.controls['words'].controls; let j = index">
+            <div [formGroup]="cd" class="form-group">
+              <label class="col-sm-2">{{j}} 关键词 </label>
+              <div class="col-md-6 col-sm-10" >
+                <div class="col-md-11">
+                  <input type="text" class="form-control" formControlName="word">
+                </div>
+                <div class="col-md-1">
+                  <span><i class="icon icon-trash" style="font-size: 20px;" (click)="trashword(i, j)"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <span class="pull-right btn btn-success"
+                  style="margin-right: 10px;"  (click)="addKeyword(i)"><i
+
+              class="icon icon-plus-sign"
+              style="font-size: 20px;"></i>添加关键词 </span>
+          </div>
+
+        </div>
+    </div >
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="addKeywordGroup()">+添加词组</button>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-warning">注册</button>
+    </div>
+  </div>
+</form>
+

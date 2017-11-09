@@ -12,6 +12,7 @@ export class QuoteAction implements Action {
 }
 export class QuoteSuccessAction implements Action {
   type = ActionsTypes.QUOTE_SUCCESS;
+  debugger
   constructor( public  payload: Quote) { }
 }
 export class QuoteFailAction implements Action {

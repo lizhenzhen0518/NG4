@@ -5,13 +5,18 @@ import { RegisterComponent } from './components/register/register.component';
 import { SharedOuterModule} from '../../fun/shared';
 import { ROUTE_CONFIG } from './m-router';
 import { RouterModule} from '@angular/router';
-import { CoreModule } from './fun/core';
+import { ServiceModule} from './fun/services';
+import { AppEffectsModule} from './fun/effects';
+import { AppStoreModule} from './fun/reducers';
 @NgModule({
   imports: [
     CommonModule,
+    ServiceModule,
+    AppEffectsModule,
+    AppStoreModule,
     RouterModule.forChild(ROUTE_CONFIG),
-    SharedOuterModule,
-    CoreModule
+    SharedOuterModule
+
   ],
   declarations: [LoginComponent, RegisterComponent]
 })

@@ -1,13 +1,13 @@
 import { Quote} from '../domain/quote';
-import * as actions from '../actions/quote.action';
+import * as actions from '../actions/task.action';
 // 创建一个 接口
 export interface State {
-  quote: Quote;
+  task: Quote;
 }
 // 初始化State
 
 export const initialState: State = {
-  quote: {
+  task: {
     cn: '满足感在于不断的努力，而不是现有成就。全心努力定会胜利满满。',
     en: 'Satisfaction lies in the effort, not in the attainment. Full effort is full victory. ',
     pic: 'assets/img/quote_fallback.jpg',
@@ -15,17 +15,17 @@ export const initialState: State = {
 };
 export function reducer( state: State = initialState, action: actions.Actions): State {
   switch ( action.type ) {
-    case actions.ActionsTypes.QUOTE_SUCCESS:
-      return {...state, quote: action.payload};
-    case actions.ActionsTypes.QUOTE_FAIL:
+    case actions.ActionsTypes.TASK_SUCCESS:
+      return {...state, task: action.payload};
+    case actions.ActionsTypes.TASK_FAIL:
     default:
       return state;
   }
 }
 
-export const getQuote = (state: State) => {
+export const getTask = (state: State) => {
 
-  return state.quote;
+  return state.task;
 }
 
 

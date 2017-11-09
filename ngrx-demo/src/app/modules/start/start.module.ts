@@ -9,15 +9,19 @@ import { SharedOuterModule} from '../../fun/shared';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { CoreModule } from './fun/core';
 
+import { ServiceModule} from './fun/services';
+import { AppEffectsModule} from './fun/effects';
+import { AppStoreModule} from './fun/reducers';
 @NgModule({
   imports: [
 
     SharedOuterModule,
     SharedModule,
+    ServiceModule,
+    AppEffectsModule,
+    AppStoreModule,
 
-    CoreModule,
     RouterModule.forChild(ROUTE_CONFIG)
   ],
   exports: [],

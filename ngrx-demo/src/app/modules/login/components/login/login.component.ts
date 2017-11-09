@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../../../fun/reducers';
 import * as authAction from '../../fun/actions/auth.action';
 import {Router} from '@angular/router';
-
+import * as fromStart from '../.././../../modules/start/fun/reducers';
+import {Observable} from 'rxjs/Observable';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,8 +14,15 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-
-  constructor(private fb: FormBuilder, private store$: Store<fromRoot.State>, private router: Router) {
+  quote$: Observable<any>;
+  constructor(private fb: FormBuilder,
+              private store$: Store<fromRoot.State>,
+              private router: Router,
+              private startStore$: Store<fromStart.FeatureState>) {
+    this.quote$ = this.startStore$.select(fromStart.getQuote);
+    this.quote$.subscribe(val => {
+      console.log(val);
+    })
   }
 
   ngOnInit() {

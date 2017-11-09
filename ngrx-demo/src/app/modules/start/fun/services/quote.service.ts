@@ -9,6 +9,7 @@ export class QuoteService {
   constructor(@Inject('BASE_CONFIG') private config, private http: Http) { }
 
   getQuote(): Observable<Quote> {
+    debugger
     const url =  `${this.config}/quotes/${Math.floor(Math.random()) * 10}`;
     return this.http.get(url).map(res => res.json() as Quote);
   }
